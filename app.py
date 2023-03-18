@@ -3,12 +3,22 @@ import os
 from hashlib import sha512
 import uuid
 import cv2
+import pandas as pd
 import numpy as np
 import tensorflow_hub as hub
 from tensorflow.keras.models import load_model
+import pickle
 app = Flask(__name__)
 image_model_path = './Soil_Analysis/my_model.h5'
 image_model = load_model(image_model_path,custom_objects={'KerasLayer':hub.KerasLayer})
+AVG_SOIL_VALUES = pd.read_csv("to_save_ang.csv")
+df=pd.read_csv('./Crop_recommendation.csv')
+
+def load_model(model_name):
+    with open(model_name, "rb") as file:
+        model = pickle.load(file)
+    return model
+CROPS_MODEL = load_model("crop_rec.pkl")
 @app.route('/')
 def hello_world():
     return render_template('index.html')
@@ -29,17 +39,24 @@ def image_upload():
             img_reshaped = np.reshape(img_scaled,[1,224,224,3])
             input_pred = image_model.predict(img_reshaped)
             input_label = np.argmax(input_pred)
+            val = "BLACK"
             if input_label == 0:
-                return "Black Soil"
+                val = "BLACK"
             elif input_label == 1:
-                return "Cinder Soil"
+                val = "CINDER"
             elif input_label == 2:
-                return "Laterite Soil"
+                val = "LATERITE"
             elif input_label == 3:
-                return "Peat Soil"
+                val = "PEAT"
             elif input_label == 4:
-                return "Yellow Soil"
-            return "success"
+                val = "YELLOW"
+            nx = np.array([AVG_SOIL_VALUES[val]])
+            t = nx.reshape(1, -1)
+            distances, indices = CROPS_MODEL.kneighbors(t, n_neighbors=5)
+            rec = []
+            for i in indices[0]:
+                rec.append(df.iloc[i]['label'])
+            return rec.__str__()
         except Exception as e:
             print(e)
             return "error"
