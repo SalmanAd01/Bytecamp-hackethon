@@ -64,12 +64,19 @@ def image_upload():
             to_re = []
             for i in rec:
                 to_re.append(list(filter(lambda x: x['original'] == i,data_vendors)))
-            return to_re.__str__()
+            return render_template('crop.html',soil_type=val,crops=rec)
         except Exception as e:
             print(e)
             return "error"
     else:
         return "error"
 
+@app.route('/vendor/<name>')
+def vendor(name):
+    to_re = []
+    to_re.append(list(filter(lambda x: x['original'] == name ,data_vendors)))
+    print(to_re)
+
+    return render_template('vendors.html',vendors=to_re[0])
 if __name__ == '__main__':
     app.run(debug=True)

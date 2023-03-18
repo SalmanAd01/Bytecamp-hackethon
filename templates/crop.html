@@ -13,14 +13,13 @@
 
 <body>
     <div class="container mt-5">
-        <h2>Something</h2>
         <h1 class="text-center">{{ soil_type }}</h1>
         <div class="list-group">
             {% for item in crops %}
             {% if loop.index == 1 %}
-            <a href="#" class="list-group-item list-group-item-action active" aria-current="true">{{ item }}</a>
+            <a href="/vendor/{{item}}" class="list-group-item list-group-item-action active" aria-current="true">{{ item }}</a>
             {% else %}
-            <a href="#" class="list-group-item list-group-item-action">{{ item }}</a>
+            <a href="/vendor/{{item}}" class="list-group-item list-group-item-action">{{ item }}</a>
             {% endif %}
             {% endfor %}
         </div>

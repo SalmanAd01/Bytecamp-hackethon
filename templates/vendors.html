@@ -13,22 +13,24 @@
 
 <body>
     <div class="container">
-        {% for vendor in vendors %}
-        <div class="card" style="width: 18rem;">
-            <img src="{{vendor.image}}" id="blah"
-                class="img-thumbnail" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{vendor.original}}</h5>
-                <p class="card-text">{{vendor.ownerName}}</p>
-                <a href="{{vendor.link}}" class="btn btn-primary">Go to Link</a>
-                <p class="card-text">{{vendor.contact}}</p>
-                <p class="card-text">{{vendor.city}}/{{vendor.district}}</p>
-                <p class="card-text">{{vendor.standardPrice}}</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-                <!-- <button type="submit" class="upload-img-btn">Upload</button> -->
+        <div class="row">
+
+            {% for vendor in vendors %}
+            <div class="card col-3" style="width: 18rem;">
+                <img src="{{vendor.image}}" id="blah" class="img-thumbnail" alt="..." width="100px">
+                <div class="card-body">
+                    <h5 class="card-title">{{vendor.original}}</h5>
+                    <p class="card-text">{{vendor.ownerName}}</p>
+                    <a href="{{vendor.link}}" class="btn btn-primary">Go to Link</a>
+                    <p class="card-text">{{vendor.contact}}</p>
+                    <p class="card-text">{{vendor.city}}/{{vendor.district}}</p>
+                    <p class="card-text">{{vendor.standardPrice}}</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <!-- <button type="submit" class="upload-img-btn">Upload</button> -->
+                </div>
             </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
 </body>
 
