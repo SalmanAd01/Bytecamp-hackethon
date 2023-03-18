@@ -8,6 +8,10 @@ import numpy as np
 import tensorflow_hub as hub
 from tensorflow.keras.models import load_model
 import pickle
+import json
+f = open('data.json')
+data_vendors = json.load(f)
+# print(list(filter(lambda x: x['original'] == 'potato',data_vendors)))
 app = Flask(__name__)
 image_model_path = './Soil_Analysis/my_model.h5'
 image_model = load_model(image_model_path,custom_objects={'KerasLayer':hub.KerasLayer})
@@ -56,7 +60,11 @@ def image_upload():
             rec = set()
             for i in indices[0]:
                 rec.add(df.iloc[i]['label'])
-            return rec.__str__()
+            # return rec.__str__()
+            to_re = []
+            for i in rec:
+                to_re.append(list(filter(lambda x: x['original'] == i,data_vendors)))
+            return to_re.__str__()
         except Exception as e:
             print(e)
             return "error"
