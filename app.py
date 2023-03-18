@@ -12,7 +12,7 @@ app = Flask(__name__)
 image_model_path = './Soil_Analysis/my_model.h5'
 image_model = load_model(image_model_path,custom_objects={'KerasLayer':hub.KerasLayer})
 AVG_SOIL_VALUES = pd.read_csv("to_save_ang.csv")
-df=pd.read_csv('./Crop_recommendation.csv')
+df=pd.read_csv('./to_save_ang_li.csv')
 
 def load_model(model_name):
     with open(model_name, "rb") as file:
@@ -53,9 +53,9 @@ def image_upload():
             nx = np.array([AVG_SOIL_VALUES[val]])
             t = nx.reshape(1, -1)
             distances, indices = CROPS_MODEL.kneighbors(t, n_neighbors=5)
-            rec = []
+            rec = set()
             for i in indices[0]:
-                rec.append(df.iloc[i]['label'])
+                rec.add(df.iloc[i]['label'])
             return rec.__str__()
         except Exception as e:
             print(e)
