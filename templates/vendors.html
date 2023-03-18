@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AgroStop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        {% for vendor in vendors %}
+        <div class="card" style="width: 18rem;">
+            <img src="{{vendor.image}}" id="blah"
+                class="img-thumbnail" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{vendor.original}}</h5>
+                <p class="card-text">{{vendor.ownerName}}</p>
+                <a href="{{vendor.link}}" class="btn btn-primary">Go to Link</a>
+                <p class="card-text">{{vendor.contact}}</p>
+                <p class="card-text">{{vendor.city}}/{{vendor.district}}</p>
+                <p class="card-text">{{vendor.standardPrice}}</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <!-- <button type="submit" class="upload-img-btn">Upload</button> -->
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>
