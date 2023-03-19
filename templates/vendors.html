@@ -2,36 +2,232 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AgroStop</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/responsive.css">
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <link rel="stylesheet" href="../static/css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="../static/css/owl.carousel.min.css">
+    <link rel="stylesoeet" href="../static/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+        media="screen">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
     <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-
-            {% for vendor in vendors %}
-            <div class="card col-3" style="width: 18rem;">
-                <img src="{{vendor.image}}" id="blah" class="img-thumbnail" alt="..." width="100px">
-                <div class="card-body">
-                    <h5 class="card-title">{{vendor.original}}</h5>
-                    <p class="card-text">{{vendor.ownerName}}</p>
-                    <a href="{{vendor.link}}" class="btn btn-primary">Go to Link</a>
-                    <p class="card-text">{{vendor.contact}}</p>
-                    <p class="card-text">{{vendor.city}}/{{vendor.district}}</p>
-                    <p class="card-text">{{vendor.standardPrice}}</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                    <!-- <button type="submit" class="upload-img-btn">Upload</button> -->
+    <div class="header_section">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="logo"><a href="index.html"><img src="../static/images/logo.png"></a></div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="index.html">Home</a>
+                    <a class="nav-item nav-link" href="about.html">About</a>
+                    <a class="nav-item nav-link" href="services.html">Services</a>
+                    <a class="nav-item nav-link" href="products.html">Our Products</a>
+                    <a class="nav-item nav-link" href="contact.html">Contact us</a>
                 </div>
             </div>
-            {% endfor %}
+        </nav>
+        <!-- banner section end -->
+        <div class="banner_section layout_padding">
+            <div id="main_slider" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h1 class="banner_taital">Dedicated<br> <span style="color: #fff;">To Building
+                                            Farms</span>
+                                    </h1>
+                                    <p class="banner_text">It is a long established fact that a reader will be
+                                        distracted by the
+                                        readable content</p>
+                                    <div class="read_bt"><a href="#">Read More</a></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div><img src="../static/images/img-1.png" class="image_1"></div>
+                                </div>
+                            </div>
+                            <div class="custum_menu">
+                                <ul>
+                                    <li class="active"><a href="index.html">Home</a></li>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="services.html">Services</a></li>
+                                    <li><a href="products.html">Our Products</a></li>
+                                    <li><a href="contact.html">Contact us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h1 class="banner_taital">Dedicated<br> <span style="color: #fff;">To Building
+                                            Farms</span>
+                                    </h1>
+                                    <p class="banner_text">It is a long established fact that a reader will be
+                                        distracted by the
+                                        readable content</p>
+                                    <div class="read_bt"><a href="#">Read More</a></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div><img src="../static/images/img-1.png" class="image_1"></div>
+                                </div>
+                            </div>
+                            <div class="custum_menu">
+                                <ul>
+                                    <li class="active"><a href="index.html">Home</a></li>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="services.html">Services</a></li>
+                                    <li><a href="products.html">Our Products</a></li>
+                                    <li><a href="contact.html">Contact us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h1 class="banner_taital">Dedicated<br> <span style="color: #fff;">To Building
+                                            Farms</span>
+                                    </h1>
+                                    <p class="banner_text">It is a long established fact that a reader will be
+                                        distracted by the
+                                        readable content</p>
+                                    <div class="read_bt"><a href="#">Read More</a></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div><img src="../static/images/img-1.png" class="image_1"></div>
+                                </div>
+                            </div>
+                            <div class="custum_menu">
+                                <ul>
+                                    <li class="active"><a href="index.html">Home</a></li>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="services.html">Services</a></li>
+                                    <li><a href="products.html">Our Products</a></li>
+                                    <li><a href="contact.html">Contact us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="next">
+                 <i class="fa fa-angle-left"></i>
+              </a>
+              <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+                 <i class="fa fa-angle-right"></i>
+              </a> -->
+            </div>
+        </div>
+        <!-- banner section end -->
+    </div>
+    <div class="blog_section layout_padding space">
+        <div class="container">
+            <h1 class="choose_taital">Vendors</h1>
+            <!-- <p class="choose_text">It is a long established fact that a reader will be distracted by the readable content
+              of a page when looking at its</p> -->
+            <div class="blog_section_2 layout_padding">
+                <div class="row">
+                    {% for vendor in vendors %}
+                    <div class="col-lg-4">
+                        <div class="box_main">
+                            <img src="{{vendor.image}}" class="image_9">
+                            <div class="post_main">
+                                <a href="{{vendor.link}}">
+                                    <h1 class="fresh_text">{{vendor.name}}</h1>
+                                </a>
+                                <h6 class="post_text">{{vendor.ownerName}}</h6>
+                                <p class="long_text">{{vendor.contact}}</p>
+                                <p class="long_text">{{vendor.city}}</p>
+                                <p class="long_text">₹{{vendor.standardPrice}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
     </div>
+    <div class="footer_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <h2 class="useful_text">About</h2>
+                    <p class="ipsum_text">There are many variations of passages of Lorem Ipsum available, but the
+                        majority
+                        have suffered alteration in some form, by injected humour, or randomised</p>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <h2 class="useful_text">Services</h2>
+                    <div class="footer_links">
+                        <ul>
+                            <li class="active"><a href="#">Farm</a></li>
+                            <li><a href="#">Agriculture</a></li>
+                            <li><a href="#">Vegetables</a></li>
+                            <li><a href="#">Fruit</a></li>
+                            <li><a href="#">And more</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <h2 class="useful_text">Our Product</h2>
+                    <div class="footer_links">
+                        <ul>
+                            <li><a href="#">Milk</a></li>
+                            <li><a href="#">Agriculture</a></li>
+                            <li><a href="#">Vegetables</a></li>
+                            <li><a href="#">Fruit</a></li>
+                            <li><a href="#">And more</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <h2 class="useful_text">contact us</h2>
+                    <div class="addres_link">
+                        <ul>
+                            <li><a href="#"><img src="../static/images/map-icon.png"><span class="padding_left_10">There
+                                        are many
+                                        vari</span></a></li>
+                            <li><a href="#"><img src="../static/images/call-icon.png"><span class="padding_left_10">+01
+                                        1234567890</span></a></li>
+                            <li><a href="#"><img src="../static/images/mail-icon.png"><span
+                                        class="padding_left_10">demo@gmail.com</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/popper.min.js"></script>
+    <script src="../static/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/js/jquery-3.0.0.min.js"></script>
+    <script src="../static/js/plugin.js"></script>
+    <script src="../static/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../static/js/custom.js"></script>
+    <script src="../static/js/owl.carousel.js"></script>
+    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 </body>
 
 </html>
