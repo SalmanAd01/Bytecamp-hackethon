@@ -20,3 +20,14 @@ virtualenv env
 .\env\Scripts\activate.ps1
 pip install -r requirements.txt
 ```
+
+
+### Output
+
+![image](https://user-images.githubusercontent.com/80933048/226156174-672b7e2b-495a-4b1a-a635-824462938e55.png)
+
+![image](https://user-images.githubusercontent.com/80933048/226156180-0b97845f-dc74-4e74-9260-45e9c7158bc4.png)
+
+![image](https://user-images.githubusercontent.com/80933048/226156181-5f4d466d-05f0-4c24-9e67-72564e1cc6c5.png)
+
+![image](https://user-images.githubusercontent.com/80933048/226156182-7fcb518f-f540-4604-9279-afd0e4848b28.png)
